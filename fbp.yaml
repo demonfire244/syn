@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: Facebook Poster
+  version: 1.0.0
+servers:
+  - url: https://thegptsyndicate.nateliming.workers.dev
+paths:
+  /:
+    get:
+      summary: Post to Facebook
+      operationId: postToFacebook
+      parameters:
+        - name: message
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The message to post
+      responses:
+        '200':
+          description: Facebook post successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
