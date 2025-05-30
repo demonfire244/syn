@@ -21,7 +21,7 @@ paths:
           required: true
           schema:
             type: string
-            example: 3D4D69ED6D7438ADDCB69011B3589826B223560417359C17D01A4AB8452B3C72
+            example: REMOVEDFORSECURITY
           description: API key required to authorize this request.
       responses:
         "200":
