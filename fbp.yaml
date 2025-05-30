@@ -7,7 +7,7 @@ servers:
 paths:
   /:
     get:
-      summary: Post to Facebook
+      summary: Post a message to Facebook
       operationId: postToFacebook
       parameters:
         - name: message
@@ -15,10 +15,17 @@ paths:
           required: true
           schema:
             type: string
-          description: The message to post
+          description: The message to post to Facebook.
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            example: 3D4D69ED6D7438ADDCB69011B3589826B223560417359C17D01A4AB8452B3C72
+          description: API key required to authorize this request.
       responses:
-        '200':
-          description: Facebook post successful
+        "200":
+          description: Facebook post successful.
           content:
             application/json:
               schema:
@@ -28,3 +35,15 @@ paths:
                     type: string
                   data:
                     type: object
+        "400":
+          description: Missing required parameters.
+          content:
+            text/plain:
+              schema:
+                type: string
+        "403":
+          description: Unauthorized – Invalid API key.
+          content:
+            text/plain:
+              schema:
+                type: string
